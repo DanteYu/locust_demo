@@ -3,6 +3,12 @@
 
 使用简单的，分布式的，用户负载测试工具。使用 Python 代码来定义用户行为。用它可以模拟百万计的并发用户访问你的系统
 
+#### 特点
+* Define user behaviour in code.No need for clunky UIs or bloated XML. Just plain code. 
+> Locust 完全基本 Python 编程语言，采用 Pure Python 描述测试脚本，并且 HTTP 请求完全基于 Requests 库。除了 HTTP/HTTPS 协议，Locust 也可以测试其它协议的系统，只需要采用Python调用对应的库进行请求描述即可。
+* Distributed & scalable. Locust supports running load tests distributed over multiple machines, and can therefore be used to simulate millions of simultaneous users
+> LoadRunner 和 Jmeter 这类采用进程和线程的测试工具，都很难在单机上模拟出较高的并发压力。Locust 的并发机制摒弃了进程和线程，采用协程（gevent）的机制。协程避免了系统级资源调度，由此可以大幅提高单机的并发能力
+
 #### locust使用思路
 1. 先写一个locustfile，也就是一个普通的python file。 可以参考本repo的demo目录下。locustfile至少要拥有一个`HttpLocust`的子类(代表用户，设置测试)，一个`TaskSet`的子类(模拟用户行为)
 2. 使用命令去执行locust文件，并且观察结果
