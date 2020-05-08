@@ -37,6 +37,7 @@ class WebsiteUserGet(HttpLocust):
     # 指向一个TaskSet类，TaskSet类定义了用户的任务信息，该属性为必填；
     task_set = UserBehaviourGet
     # 每个用户执行两个任务间隔时间的上下限（毫秒），具体数值在上下限中随机取值
+    # 就是LR里面的think time
     wait_time = between(1, 3)
     # 被测系统的host，当在终端中启动locust时没有指定--host参数时才会用到
     host = "https://postman-echo.com"
